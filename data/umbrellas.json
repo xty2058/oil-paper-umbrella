@@ -1,0 +1,1297 @@
+{
+  "schemaVersion": 1,
+  "conventions": {
+    "lengthUnit": "m",
+    "angleUnit": "rad",
+    "coordinateSystem": "右手坐标，+Y向上，XZ为水平面；原点为手柄底端中棒轴心；方位角从+X转向+Z。",
+    "modelParameters": "geometry、material、lighting 均为演示参数，不是历史真实尺寸。",
+    "materialBinding": "geometry 与 material 合并为生成器参数；colors 保留 shaft、hubs、handle。material.canopyTexture 为运行时空占位；加载器须把 textureAssets.canopy.path 读成 THREE.Texture 后传入，不把文件路径字符串直接传给生成器。",
+    "lightingBinding": "keyAzimuth 为弧度，keyIntensity 沿用现有调参台单位；不声明为实测照度。",
+    "cultureEntry": {
+      "text": "正文；缺证时留空，不用猜测填充。",
+      "level": [
+        "史实",
+        "推断",
+        "传说"
+      ],
+      "_source": "逐条来源对象数组：title、publisher、url、type、accessedAt、locator；有明确发布日期时才记录 publishedAt。",
+      "pendingVerification": "true 表示尚待核实；史实分类的空条目不表示事实已经成立。"
+    },
+    "sourcePolicy": "优先官方名录与非遗机构资料；推断、传说必须在正文明确不确定性。未读原文的地方志、论文、书籍不得伪装成直接引文。",
+    "realDimensionEntry": {
+      "value": "实测数值",
+      "unit": "原资料单位",
+      "objectId": "对应实物或藏品标识",
+      "_source": "可核对的出处",
+      "pendingVerification": "是否待核实"
+    }
+  },
+  "umbrellas": [
+    {
+      "id": "luzhou-fenshui-oil-paper-umbrella",
+      "name": "泸州分水油纸伞",
+      "aliases": [
+        "分水油纸伞",
+        "泸州油纸伞"
+      ],
+      "origin": {
+        "country": "中国",
+        "province": "四川省",
+        "city": "泸州市",
+        "district": "江阳区",
+        "town": "分水岭镇",
+        "_source": [
+          {
+            "title": "文化中国行丨镜观·非遗：一把油纸伞 撑起四百年诗意时光",
+            "publisher": "新华网／新华社",
+            "url": "https://www2.xinhuanet.com/culture/20250217/1dce2fd1d61745a185fc6c38e5e0ace9/c.html",
+            "type": "新闻机构现场采访报道",
+            "publishedAt": "2025-02-17",
+            "accessedAt": "2026-10-21",
+            "locator": "正文产地说明"
+          },
+          {
+            "title": "伞制作技艺（油纸伞制作技艺）",
+            "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+            "url": "https://www.ihchina.cn/project_details/14579",
+            "type": "官方项目名录与介绍",
+            "accessedAt": "2026-10-21",
+            "locator": "申报地区及项目介绍"
+          }
+        ]
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "待用户确认",
+        "presetReference": "数值逐项取自当前生成器 DEFAULTS 与 lab 灯光默认值。尚未取得独立导出的已验收预设 JSON，不能据此确认这些默认值与用户已验收预设完全一致。",
+        "note": "这是演示模型参数，不能当作分水油纸伞的实物测量值。若另有验收预设，应按原字段逐项替换，不转换成其他示例的单位体系。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 24,
+        "ribLength": 0.58,
+        "canopyRise": 0.18,
+        "ribBend": 0.025,
+        "canopySag": 0.012,
+        "shaftLength": 0.82,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.32,
+        "shaftRadius": 0.008,
+        "ribRadius": 0.0025,
+        "stretcherRadius": 0.002,
+        "hubRadius": 0.018,
+        "hubHeight": 0.024,
+        "handleLength": 0.14,
+        "handleRadius": 0.014
+      },
+      "material": {
+        "transmission": 0.35,
+        "roughness": 0.85,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/peony-crimson.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "此前验收的牡丹演示纹样。未经实物纹样比对，不代表泸州分水传统实物的准确复原。",
+          "desc": "本资料卡使用 AI 生成的牡丹花卉与缠绕枝叶图案，供观察伞面贴图效果。泸州职业技术学院非遗普及资料将牡丹解释为富贵的象征，这是该资料对纹样题材的说明，不证明本图来自分水传统实物。现有图片没有对应藏品编号或实物比对，不能当作地方传统纹样的准确复原。",
+          "_source": [
+            {
+              "title": "牡丹演示纹样与生成记录",
+              "publisher": "本项目／“古伞生图”对话",
+              "url": "assets/optimized/patterns/peony-crimson.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成牡丹演示图；生成对话ID：01a15cf1-2c91-7b90-b478-14473a1b2325"
+            },
+            {
+              "title": "国家级非物质文化遗产—伞制作技艺（油纸伞制作技艺）",
+              "publisher": "泸州职业技术学院·赤水河流域非物质文化遗产普及基地",
+              "url": "https://kjcy.lzy.edu.cn/cshlyjd/info/1061/1283.htm",
+              "type": "高校非遗普及资料",
+              "accessedAt": "2026-10-22",
+              "locator": "正文第二段：材料、伞面诗画、牡丹与富贵的解释",
+              "publishedAt": "2023-01-19"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "尚无对应实物、藏品编号或测绘资料；不得把 geometry 数值、宣传性巨伞尺寸或其他地区案例填作本伞真实尺寸。"
+      },
+      "culture": [
+        {
+          "id": "structure",
+          "title": "伞面与支架",
+          "text": "分水油纸伞的伞架由伞骨、伞托、伞杆等部件组装，纸面与支架结合后，再进行定型和上油等处理。这里介绍部件关系，不据此规定每把伞的骨数、直径或高度；页面列示的数值属于本页演示模型。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "place",
+          "title": "产地",
+          "text": "分水油纸伞产于四川省泸州市江阳区分水岭镇。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "文化中国行丨镜观·非遗：一把油纸伞 撑起四百年诗意时光",
+              "publisher": "新华网／新华社",
+              "url": "https://www2.xinhuanet.com/culture/20250217/1dce2fd1d61745a185fc6c38e5e0ace9/c.html",
+              "type": "新闻机构现场采访报道",
+              "publishedAt": "2025-02-17",
+              "accessedAt": "2026-10-21",
+              "locator": "正文介绍分水油纸伞产地的段落"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "national-heritage",
+          "title": "国家级非遗项目",
+          "text": "“伞制作技艺（油纸伞制作技艺）”于2008年列入第二批国家级名录，项目编号Ⅷ-140；申报地区为四川省泸州市江阳区。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "伞制作技艺（油纸伞制作技艺）",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/project_details/14579",
+              "type": "官方项目名录与介绍",
+              "accessedAt": "2026-10-21",
+              "locator": "项目基本信息：公布时间、批次、项目编号、申报地区"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "materials",
+          "title": "制作材料",
+          "text": "官方介绍列举的原料包括桐油、楠竹、水竹、岩桐木和皮纸。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "伞制作技艺（油纸伞制作技艺）",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/project_details/14579",
+              "type": "官方项目名录与介绍",
+              "accessedAt": "2026-10-21",
+              "locator": "介绍分水油纸伞原材料的段落"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "surface-art",
+          "title": "伞面艺术",
+          "text": "非遗普及基地资料介绍，分水油纸伞的伞面兼具诗与画的装饰形式。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "国家级非物质文化遗产—伞制作技艺（油纸伞制作技艺）",
+              "publisher": "泸州职业技术学院·赤水河流域非物质文化遗产普及基地",
+              "url": "https://kjcy.lzy.edu.cn/cshlyjd/info/1061/1283.htm",
+              "type": "高校非遗普及基地资料",
+              "publishedAt": "2023-01-19",
+              "accessedAt": "2026-10-21",
+              "locator": "正文介绍伞面诗画的段落"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "uses",
+          "title": "民俗用途",
+          "text": "官方介绍记载，分水油纸伞也用于婚庆和民间信仰活动。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "伞制作技艺（油纸伞制作技艺）",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/project_details/14579",
+              "type": "官方项目名录与介绍",
+              "accessedAt": "2026-10-21",
+              "locator": "介绍婚庆、宗教活动用途的段落"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "representative-inheritor",
+          "title": "代表性传承人",
+          "text": "毕六福是该项目第三批国家级代表性传承人；其官方档案序号为03-1405。",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "毕六福",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/ccr_detail/3153.html",
+              "type": "官方代表性传承人档案",
+              "accessedAt": "2026-10-21",
+              "locator": "档案序号与人物简介；传承人批次不同于项目入选批次"
+            }
+          ],
+          "pendingVerification": false
+        },
+        {
+          "id": "origin-date",
+          "title": "起源年代",
+          "text": "",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "伞制作技艺（油纸伞制作技艺）",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/project_details/14579",
+              "type": "官方项目名录与介绍",
+              "accessedAt": "2026-10-21",
+              "locator": "转引《泸县志》并称起源于明末清初的段落"
+            }
+          ],
+          "pendingVerification": true,
+          "verificationNote": "官方网页引用了地方志，但本次未取得对应原书扫描页及可核对的版次、页码。暂不把具体起源年代写成已核实事实。"
+        },
+        {
+          "id": "craft-count",
+          "title": "工序总数",
+          "text": "",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "伞制作技艺（油纸伞制作技艺）",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/project_details/14579",
+              "type": "官方项目名录与介绍",
+              "accessedAt": "2026-10-21",
+              "locator": "项目介绍称九十多道工序"
+            },
+            {
+              "title": "毕六福",
+              "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+              "url": "https://www.ihchina.cn/ccr_detail/3153.html",
+              "type": "官方代表性传承人档案",
+              "accessedAt": "2026-10-21",
+              "locator": "人物简介提及七十二道工序"
+            }
+          ],
+          "pendingVerification": true,
+          "verificationNote": "不同官方资料出现不同工序数量，可能涉及拆分口径或时期差异；该可能性尚未经证实。固定总数及完整先后顺序暂不填写。"
+        }
+      ],
+      "craftSteps": [
+        {
+          "id": "craft-1",
+          "name": "选竹",
+          "desc": "资料记载，分水制骨选用有柔韧性的楠竹，伞杆另用水竹。选材是备料的起点，不能只看竹材外观。教学上据此推断：若材料性能不合适，后续即使尺寸齐整，也可能影响支撑和开合。",
+          "image": "assets/optimized/craft/craft-01.webp",
+          "level": "推断",
+          "_source": [
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            },
+            {
+              "title": "分水老街的油纸伞",
+              "publisher": "人民周刊",
+              "url": "https://paper.people.com.cn/rmzk/html/2018-08/23/content_1876817.htm",
+              "type": "现场采访报道",
+              "accessedAt": "2026-10-22",
+              "locator": "正文下料制骨、石板印花、印制晒干后上桐油段",
+              "publishedAt": "2018-08-23"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "选材动作与材料类别有来源；不合适材料的后果为教学推断，不是试验结论。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-2",
+          "name": "劈竹",
+          "desc": "将竹材分成条，再按伞骨要求修整、刨槽，为后续配合连接准备部件。资料强调伞骨规格会影响质量。教学上据此推断：粗细不匀或修整失当，可能使相邻骨条难以齐整配合，不能只追求削得细。",
+          "image": "assets/optimized/craft/craft-02.webp",
+          "level": "推断",
+          "_source": [
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            },
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "分条、刨槽、规格要求有直接支持；配合失当的后果为教学推断。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-3",
+          "name": "钻孔",
+          "desc": "在修整后的竹条上定位钻孔，为穿线连接留下通道。分水资料记载，骨条经钻眼、穿线后能紧密合拢。教学上据此推断：孔位偏差可能妨碍整齐配合；图中工具只示意钻孔，不证明当地工具形制。",
+          "image": "assets/optimized/craft/craft-03.webp",
+          "level": "推断",
+          "_source": [
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            },
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "钻孔及合拢作用有文字支持；孔偏影响为推断，插画钻具未作实物复原。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-4",
+          "name": "组架",
+          "desc": "将伞骨、伞托与伞杆组成伞架，再穿绞、网伞，调整骨条间距，为糊纸准备支撑。教学上据此推断：连接和间距若不齐整，可能影响纸面铺展。图中穿线只代表组架环节，不展示完整的满穿针法。",
+          "image": "assets/optimized/craft/craft-04.webp",
+          "level": "推断",
+          "_source": [
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            },
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "组件组装、网伞调距及为糊纸准备有直接支持；影响纸面铺展为教学推断。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-5",
+          "name": "糊纸",
+          "desc": "把裁好的纸片用浆糊裱到伞架上，留意纸片对口、纸竹粘合和胶层厚薄。分水资料指出，这些处理直接影响伞的成形；因此糊纸既要接合材料，也要整理纸面。插画只示意铺纸，不代表所有层次细节。",
+          "image": "assets/optimized/craft/craft-05.webp",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            },
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            },
+            {
+              "title": "“中国伞王”和他的“创富密码”",
+              "publisher": "人民网四川频道",
+              "url": "https://sc.people.com.cn/n2/2024/1112/c345510-41039281.html",
+              "type": "现场采访报道",
+              "accessedAt": "2026-10-22",
+              "locator": "选材、古法湿糊、桐油替换导致粘连及穿线段",
+              "publishedAt": "2024-11-12"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "来源直接支持糊纸、对口、粘合和成形影响；不引入统一纸层数。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-6",
+          "name": "绘纹",
+          "desc": "本环节用插画演示在成形伞面上手绘，便于理解图案布局。当地资料支持手绘和石印等方式，却未确认本图的具体操作顺序。教学推断：布局失当可能破坏图案衔接；手绘应插在哪一工序仍待核实。",
+          "image": "assets/optimized/craft/craft-06.webp",
+          "level": "推断",
+          "_source": [
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            },
+            {
+              "title": "国家级非物质文化遗产—伞制作技艺（油纸伞制作技艺）",
+              "publisher": "泸州职业技术学院·赤水河流域非物质文化遗产普及基地",
+              "url": "https://kjcy.lzy.edu.cn/cshlyjd/info/1061/1283.htm",
+              "type": "高校非遗普及资料",
+              "accessedAt": "2026-10-22",
+              "locator": "正文第二段：材料、伞面诗画、牡丹与富贵的解释",
+              "publishedAt": "2023-01-19"
+            }
+          ],
+          "pendingVerification": true,
+          "verificationNote": "手绘方式有资料支持；裱后手绘的先后、工具及材料细节未获本地直接证据，不视为已核实路线。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-7",
+          "name": "晾置",
+          "desc": "糊好的纸伞需阴干，资料提醒避免阳光直射，以免纸面开裂、图色减弱；阴干后还要烘烤定型，使收撑自然。因此晾置并非等待即完工。图示只表现放置场景，不是烘烤操作，也不表示应在烈日下晒伞。",
+          "image": "assets/optimized/craft/craft-08.webp",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            },
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "来源明确支持阴干、日晒风险、烘烤定型；插画不是实际场地记录。",
+          "imageKind": "AI-generated-teaching-illustration"
+        },
+        {
+          "id": "craft-8",
+          "name": "上油",
+          "desc": "纸面干燥定型后使用熟桐油，完成防雨处理。分水资料记载正反面上油；现场报道也记录过改用低价油导致伞面粘连。上油不能只求光亮。图中刷涂是教学示意，实际晃油及后续饰线不由一张图概括。",
+          "image": "assets/optimized/craft/craft-07.webp",
+          "level": "史实",
+          "_source": [
+            {
+              "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+              "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+              "url": "https://www.zhisan.net/news/2009112911591.html",
+              "type": "保护单位网站节目文字转载",
+              "accessedAt": "2026-10-22",
+              "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+              "publishedAt": "2009-11-29"
+            },
+            {
+              "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+              "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+              "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+              "type": "官方公告转载",
+              "accessedAt": "2026-10-22",
+              "locator": "附件14：原料；制作工艺及工艺要点",
+              "publishedAt": "2014-02-19"
+            },
+            {
+              "title": "“中国伞王”和他的“创富密码”",
+              "publisher": "人民网四川频道",
+              "url": "https://sc.people.com.cn/n2/2024/1112/c345510-41039281.html",
+              "type": "现场采访报道",
+              "accessedAt": "2026-10-22",
+              "locator": "选材、古法湿糊、桐油替换导致粘连及穿线段",
+              "publishedAt": "2024-11-12"
+            }
+          ],
+          "pendingVerification": false,
+          "verificationNote": "熟桐油、防雨及错误替代油的粘连案例有支持；刷具和晃油手法不作准确复原。",
+          "imageKind": "AI-generated-teaching-illustration"
+        }
+      ],
+      "researchGaps": [
+        {
+          "topic": "完整工艺流程",
+          "status": "已录入教学归纳，完整档案仍待核实",
+          "note": "已按资料整理八个教学环节；当地工序远不止八步，手绘分支先后及完整细工档案尚未确认。"
+        },
+        {
+          "topic": "传说与推断",
+          "status": "留空",
+          "note": "暂不新增没有地域证据的传说或解释；不得把全国性的造伞传说直接归为分水起源。"
+        },
+        {
+          "topic": "真实尺寸",
+          "status": "待核实",
+          "note": "需要能指向具体实物的测量资料、尺寸单位和出处。"
+        },
+        {
+          "topic": "性能数字及唯一性称谓",
+          "status": "未采用",
+          "note": "未写入固定耐久、抗风、浸泡性能，也未使用“唯一”“最后一家”等时效性宣传称谓。"
+        },
+        {
+          "topic": "地方志、学术论文与专业书籍原文",
+          "status": "待核实",
+          "note": "地方志原页、相关论文全文及专业书籍版本页码尚未取得，未伪造书目引用。"
+        }
+      ],
+      "craftOverview": {
+        "kind": "teaching-summary",
+        "region": "四川泸州分水",
+        "note": "以下八个环节是依据分水油纸伞资料整理的教学归纳，不是当地只有八道工序，也不是操作规范。绘纹是供理解图案的手绘演示分支，插入顺序仍待核实；石印路线通常先印花纸再糊伞。晾置展示糊纸后的阴干，另有烘烤定型；上油后的饰线等细工合并说明。八张图片均为AI示意，不能替代当地工艺档案。标为“推断”的质量解释使用可能语气，不当作实测结论。",
+        "_source": [
+          {
+            "title": "质检总局2014年第13号公告·附件14：分水油纸伞质量技术要求",
+            "publisher": "国家质量监督检验检疫总局／中国质量新闻网转载",
+            "url": "https://m.cqn.com.cn/zj/content/2014-02/19/content_2109788.htm",
+            "type": "官方公告转载",
+            "accessedAt": "2026-10-22",
+            "locator": "附件14：原料；制作工艺及工艺要点",
+            "publishedAt": "2014-02-19"
+          },
+          {
+            "title": "CCTV探索发现栏目《风雨桐香》之油纸伞",
+            "publisher": "泸州分水油纸伞厂（节目文字转载，未核对视频）",
+            "url": "https://www.zhisan.net/news/2009112911591.html",
+            "type": "保护单位网站节目文字转载",
+            "accessedAt": "2026-10-22",
+            "locator": "正文备料、钻眼穿线、组装网伞、糊伞、阴干烘烤及上油段",
+            "publishedAt": "2009-11-29"
+          }
+        ],
+        "pendingVerification": true,
+        "verificationNote": "手绘分支时序仍待核实，不作当地完整标准流程。"
+      }
+    },
+    {
+      "id": "yuhang-oil-paper-umbrella-demo",
+      "name": "余杭油纸伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "名称暂定；地域与历史资料尚未核实，本记录不据名称填写产地事实。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "依据本地教程第37步建立第二条演示记录；沿用第一条的参数字段和米制单位，另设骨数、骨长、拱高、弯曲、弧垂与中棒长度以测试数据驱动差异。数值不是来源文献提供的实物尺寸。",
+        "note": "暂名余杭油纸伞，用于验证多资料卡切换；模型形态与西湖演示纹样不代表余杭传统实物的准确复原。"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "尚无可对应具体实物的测量来源；geometry仅为演示模型参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "形制、历史、产地及纹样地域归属尚未查证，不复制第一把的文化内容。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "本记录尚无地区工艺资料，暂不沿用分水工艺和插画作为余杭工艺。"
+        }
+      ],
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 32,
+        "ribLength": 0.64,
+        "canopyRise": 0.14,
+        "ribBend": 0.018,
+        "canopySag": 0.008,
+        "shaftLength": 0.9,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.32,
+        "shaftRadius": 0.008,
+        "ribRadius": 0.0025,
+        "stretcherRadius": 0.002,
+        "hubRadius": 0.018,
+        "hubHeight": 0.024,
+        "handleLength": 0.14,
+        "handleRadius": 0.014
+      },
+      "material": {
+        "transmission": 0.35,
+        "roughness": 0.85,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/westlake-ink.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "西湖水墨AI演示纹样，不是经核实的余杭传统实物图案。",
+          "desc": "画面以淡墨山水、湖面、桥与孤舟构成圆形纹样。这里仅描述本项目图像，不据此推断传统寓意、历史年代或地域代表性。",
+          "_source": [
+            {
+              "title": "西湖水墨演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/westlake-ink.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成素材；教程P02指定的图像文件，不作史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      }
+    },
+    {
+      "id": "plum-ink-umbrella-demo",
+      "name": "墨梅伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 16,
+        "ribLength": 0.48,
+        "canopyRise": 0.2,
+        "ribBend": 0.02,
+        "canopySag": 0.01,
+        "shaftLength": 0.74,
+        "stretcherAttach": 0.46,
+        "lowerHubDrop": 0.27,
+        "shaftRadius": 0.006,
+        "ribRadius": 0.0025,
+        "stretcherRadius": 0.002,
+        "hubRadius": 0.015,
+        "hubHeight": 0.024,
+        "handleLength": 0.12,
+        "handleRadius": 0.012
+      },
+      "material": {
+        "transmission": 0.3,
+        "roughness": 0.92,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/plum-ink.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "墨梅AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "墨梅演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/plum-ink.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    },
+    {
+      "id": "lotus-scroll-umbrella-demo",
+      "name": "缠枝莲伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 28,
+        "ribLength": 0.68,
+        "canopyRise": 0.23,
+        "ribBend": 0.03,
+        "canopySag": 0.018,
+        "shaftLength": 0.94,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.36,
+        "shaftRadius": 0.008,
+        "ribRadius": 0.0025,
+        "stretcherRadius": 0.002,
+        "hubRadius": 0.018,
+        "hubHeight": 0.024,
+        "handleLength": 0.15,
+        "handleRadius": 0.014
+      },
+      "material": {
+        "transmission": 0.38,
+        "roughness": 0.88,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/lotus-scroll.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "缠枝莲AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "缠枝莲演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/lotus-scroll.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    },
+    {
+      "id": "cloud-thunder-umbrella-demo",
+      "name": "云雷纹伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 12,
+        "ribLength": 0.62,
+        "canopyRise": 0.28,
+        "ribBend": 0.035,
+        "canopySag": 0.012,
+        "shaftLength": 1,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.38,
+        "shaftRadius": 0.01,
+        "ribRadius": 0.003,
+        "stretcherRadius": 0.0025,
+        "hubRadius": 0.022,
+        "hubHeight": 0.03,
+        "handleLength": 0.16,
+        "handleRadius": 0.016
+      },
+      "material": {
+        "transmission": 0.28,
+        "roughness": 0.9,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/cloud-thunder.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "云雷纹AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "云雷纹演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/cloud-thunder.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    },
+    {
+      "id": "bat-fortune-umbrella-demo",
+      "name": "蝙蝠纹伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 36,
+        "ribLength": 0.6,
+        "canopyRise": 0.12,
+        "ribBend": 0.012,
+        "canopySag": 0.004,
+        "shaftLength": 0.82,
+        "stretcherAttach": 0.5,
+        "lowerHubDrop": 0.3,
+        "shaftRadius": 0.008,
+        "ribRadius": 0.0025,
+        "stretcherRadius": 0.002,
+        "hubRadius": 0.018,
+        "hubHeight": 0.024,
+        "handleLength": 0.14,
+        "handleRadius": 0.014
+      },
+      "material": {
+        "transmission": 0.34,
+        "roughness": 0.86,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/bat-fortune.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "蝙蝠纹AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "蝙蝠纹演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/bat-fortune.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    },
+    {
+      "id": "rain-bamboo-small-umbrella-demo",
+      "name": "雨竹小伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 20,
+        "ribLength": 0.42,
+        "canopyRise": 0.13,
+        "ribBend": 0.016,
+        "canopySag": 0.006,
+        "shaftLength": 0.68,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.24,
+        "shaftRadius": 0.006,
+        "ribRadius": 0.002,
+        "stretcherRadius": 0.0018,
+        "hubRadius": 0.014,
+        "hubHeight": 0.02,
+        "handleLength": 0.1,
+        "handleRadius": 0.011
+      },
+      "material": {
+        "transmission": 0.4,
+        "roughness": 0.9,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/rain-bamboo.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "雨竹AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "雨竹演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/rain-bamboo.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    },
+    {
+      "id": "crane-cloud-courtyard-umbrella-demo",
+      "name": "白鹤庭院伞（设计演示）",
+      "aliases": [],
+      "origin": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "district": "",
+        "town": "",
+        "_source": [],
+        "pendingVerification": true,
+        "note": "本记录为当代演示设计，尚未建立经核实的地域归属。"
+      },
+      "modelProvenance": {
+        "kind": "demonstration",
+        "isHistoricalReconstruction": false,
+        "presetStatus": "扩展演示，待验收",
+        "presetReference": "沿用现有生成器参数字段与米制单位，设置不同的骨数、比例和纸面材质以验证数据驱动扩展；参数不是实物测量结果，也不是历史形制复原。",
+        "note": "这是当代设计演示资料卡，名称仅说明本项目纹样或展示尺度，不代表独立传统伞种、历史用途或地区工艺。"
+      },
+      "geometry": {
+        "openAmount": 1,
+        "ribCount": 40,
+        "ribLength": 0.88,
+        "canopyRise": 0.22,
+        "ribBend": 0.028,
+        "canopySag": 0.025,
+        "shaftLength": 1.18,
+        "stretcherAttach": 0.48,
+        "lowerHubDrop": 0.44,
+        "shaftRadius": 0.01,
+        "ribRadius": 0.0035,
+        "stretcherRadius": 0.003,
+        "hubRadius": 0.025,
+        "hubHeight": 0.032,
+        "handleLength": 0.19,
+        "handleRadius": 0.018
+      },
+      "material": {
+        "transmission": 0.36,
+        "roughness": 0.91,
+        "canopyColor": "#e5c58b",
+        "canopyTexture": null,
+        "ribColor": "#ffffff",
+        "colors": {
+          "shaft": 10254665,
+          "hubs": 8807742,
+          "handle": 5323305
+        }
+      },
+      "lighting": {
+        "keyAzimuth": 4.049163864626845,
+        "keyIntensity": 5
+      },
+      "textureAssets": {
+        "canopy": {
+          "path": "assets/optimized/patterns/crane-cloud.webp",
+          "kind": "AI-generated-design-demonstration",
+          "isVerifiedTraditionalReplica": false,
+          "note": "白鹤祥云AI演示纹样，未经传统实物比对，不作地域与历史归属证明。",
+          "_source": [
+            {
+              "title": "白鹤祥云演示纹样文件",
+              "publisher": "本项目／古伞生图",
+              "url": "assets/optimized/patterns/crane-cloud.webp",
+              "type": "项目设计资源",
+              "accessedAt": "2026-10-22",
+              "locator": "本地AI生成纹样，仅用于设计展示，不是史实来源。"
+            }
+          ]
+        },
+        "bamboo": "assets/optimized/textures/bamboo-rib.webp",
+        "wood": "assets/optimized/textures/wood-handle.webp"
+      },
+      "realDimensions": {
+        "measurements": [],
+        "_source": [],
+        "pendingVerification": true,
+        "note": "无对应实物的测量档案，geometry仅为演示参数。"
+      },
+      "culture": [],
+      "craftSteps": [],
+      "researchGaps": [
+        {
+          "topic": "文化资料",
+          "status": "留空",
+          "note": "未查证具体地区的历史、用途及纹样寓意，不继承分水文化资料。"
+        },
+        {
+          "topic": "完整工艺流程",
+          "status": "留空",
+          "note": "尚无本记录对应的地区工艺档案，不复制分水工艺作为本记录传统流程。"
+        }
+      ]
+    }
+  ]
+}

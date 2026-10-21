@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>油纸伞文化馆｜3D互动与文化资料</title>
+  <meta name="description" content="浏览油纸伞3D设计演示，旋转、开合并切换纹样，阅读形制、工艺与有来源的文化资料。模型与AI纹样不代表传统实物的准确复原。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="油纸伞文化馆">
+  <meta property="og:title" content="油纸伞文化馆｜3D互动与文化资料">
+  <meta property="og:description" content="浏览油纸伞3D设计演示，旋转、开合并切换纹样，阅读形制、工艺与有来源的文化资料。模型与AI纹样不代表传统实物的准确复原。">
+  <link rel="canonical" href="https://xty2058.github.io/oil-paper-umbrella/">
+  <meta property="og:url" content="https://xty2058.github.io/oil-paper-umbrella/">
+  <meta property="og:image" content="https://xty2058.github.io/oil-paper-umbrella/share-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta property="og:image:alt" content="暖光透过油纸伞，竹骨与花叶纹样清楚可见的设计演示封面">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="油纸伞文化馆｜3D互动与文化资料">
+  <meta name="twitter:description" content="浏览油纸伞3D设计演示，旋转、开合并切换纹样，阅读形制、工艺与有来源的文化资料。模型与AI纹样不代表传统实物的准确复原。">
+  <meta name="twitter:image" content="https://xty2058.github.io/oil-paper-umbrella/share-cover.png">
+  <meta name="twitter:image:alt" content="油纸伞透光与竹骨的设计演示封面">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <style>
+    * { box-sizing: border-box; }
+    :root { color-scheme: light; font-family: system-ui, -apple-system, sans-serif; color: #293b32; background: #f7f7f3; }
+    /* 目录与文化区共享主题；只在这两个区域使用，不影响展台。 */
+    :root {
+      --ui-font-family: system-ui, -apple-system, sans-serif;
+      --ui-font-body: 14px;
+      --ui-font-section: 17px;
+      --ui-font-subtitle: 15px;
+      --ui-font-meta: 12px;
+      --ui-weight-regular: 400;
+      --ui-weight-strong: 600;
+      --ui-text: #34443a;
+      --ui-text-strong: #293b32;
+      --ui-text-muted: #68746b;
+      --ui-surface: #ffffff;
+      --ui-border: #dce1da;
+      --ui-accent: #355b43;
+      --ui-hover-bg: #f5f7f3;
+      --ui-hover-border: #9baea0;
+      --ui-selected-bg: #edf2e9;
+      --ui-selected-hover-bg: #e4ece0;
+      --ui-selected-border: #68816d;
+      --ui-selected-text: #294c36;
+      --ui-focus: #a36539;
+      --ui-warning-text: #8b5f29;
+      --ui-warning-bg: #faf5e9;
+      --ui-error: #9c3e29;
+      --ui-border-width: 1px;
+      --ui-radius-panel: 6px;
+      --ui-radius-control: 4px;
+      --ui-focus-width: 3px;
+      --ui-focus-offset: 3px;
+      --ui-selection-mark: 3px;
+      --ui-space-1: 4px;
+      --ui-space-2: 8px;
+      --ui-space-3: 12px;
+      --ui-space-4: 16px;
+      --ui-space-5: 20px;
+      --ui-space-6: 24px;
+      --ui-line-compact: 1.6;
+      --ui-line-reading: 1.9;
+      /* 仅通过密度区分扫读与细读，颜色、字体及交互沿用同一组变量。 */
+      --ui-catalog-padding: var(--ui-space-4);
+      --ui-reading-padding: var(--ui-space-6);
+      --ui-control-compact-y: var(--ui-space-2);
+      --ui-control-compact-x: var(--ui-space-3);
+      --ui-control-reading-y: var(--ui-space-3);
+      --ui-control-reading-x: var(--ui-space-4);
+    }
+    body { margin: 0; }
+    button { font: inherit; }
+    .skip-link { position: absolute; left: 16px; top: -80px; padding: 10px; background: white; color: #294f3b; z-index: 1; }
+    .skip-link:focus { top: 12px; }
+    .stage-live canvas:focus-visible { outline: 3px solid #a36539; outline-offset: -4px; }
+    #page-retry { min-height: 44px; margin-top: 8px; padding: 8px 12px; border: 1px solid #dce1da; border-radius: 4px; color: #34443a; background: white; cursor: pointer; }
+    :focus-visible { outline: 3px solid #a36539; outline-offset: 4px; }
+    .page-header { max-width: 1440px; margin: auto; padding: 16px 32px; display: flex; align-items: baseline; gap: 20px; }
+    h1 { margin: 0; font-size: 21px; font-weight: 600; }
+    .page-header p { margin: 0; color: #69736c; font-size: 14px; }
+    .layout { max-width: 1440px; margin: 0 auto 32px; padding: 0 32px; display: grid; grid-template-columns: 250px minmax(0, 1fr); grid-template-areas: "catalog stage" "catalog culture"; gap: 20px; }
+    .panel { background: #fff; border: 1px solid #dce1da; border-radius: 6px; min-width: 0; }
+    .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    h2 { margin: 0; font-size: 17px; font-weight: 600; }
+    .count { color: #6d786f; font-size: 12px; white-space: nowrap; }
+    :is(.catalog, .culture) {
+      font-family: var(--ui-font-family);
+      font-size: var(--ui-font-body);
+      color: var(--ui-text);
+      background: var(--ui-surface);
+      border: var(--ui-border-width) solid var(--ui-border);
+      border-radius: var(--ui-radius-panel);
+      padding: var(--region-padding);
+      line-height: var(--region-leading);
+    }
+    :is(.catalog, .culture) h2 { font-size: var(--ui-font-section); font-weight: var(--ui-weight-strong); color: var(--ui-text-strong); }
+    :is(.catalog, .culture) .count { color: var(--ui-text-muted); font-size: var(--ui-font-meta); }
+    :is(.catalog, .culture) button {
+      font-family: inherit; font-size: var(--ui-font-body); line-height: var(--ui-line-compact);
+      font-weight: var(--ui-weight-regular);
+      color: var(--ui-text); background: var(--ui-surface);
+      border: var(--ui-border-width) solid var(--ui-border);
+      border-radius: var(--ui-radius-control); cursor: pointer;
+      padding: var(--region-control-y) var(--region-control-x);
+    }
+    :is(.catalog, .culture) button:hover { background: var(--ui-hover-bg); border-color: var(--ui-hover-border); }
+    :is(.catalog, .culture) button:is([aria-pressed="true"], [aria-selected="true"]) {
+      color: var(--ui-selected-text); background: var(--ui-selected-bg);
+      border-color: var(--ui-selected-border); font-weight: var(--ui-weight-strong);
+      box-shadow: inset var(--ui-selection-mark) 0 0 var(--ui-accent);
+    }
+    :is(.catalog, .culture) button:is([aria-pressed="true"], [aria-selected="true"]):hover { background: var(--ui-selected-hover-bg); border-color: var(--ui-selected-border); }
+    :is(.catalog, .culture) :focus-visible { outline: var(--ui-focus-width) solid var(--ui-focus); outline-offset: var(--ui-focus-offset); }
+    .catalog { grid-area: catalog; --region-padding: var(--ui-catalog-padding); --region-leading: var(--ui-line-compact); --region-control-y: var(--ui-control-compact-y); --region-control-x: var(--ui-control-compact-x); }
+    .catalog .section-heading { padding: 0 var(--ui-space-2); }
+    .catalog-status { color: var(--ui-text-muted); font-size: var(--ui-font-meta); line-height: var(--ui-line-compact); margin: var(--ui-space-3) 0; padding: 0 var(--ui-space-2); }
+    .catalog-status[data-error="true"] { color: var(--ui-error); }
+    .directory { list-style: none; padding: 0; margin: var(--ui-space-4) 0 0; display: grid; gap: var(--ui-space-2); }
+    .umbrella-choice { width: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: var(--ui-space-2); text-align: left; }
+    .choice-name { flex: 1 1 120px; line-height: var(--ui-line-compact); overflow-wrap: anywhere; }
+    .selection-mark { font-size: var(--ui-font-meta); font-weight: var(--ui-weight-regular); color: var(--ui-accent); visibility: hidden; }
+    .umbrella-choice[aria-pressed="true"] .selection-mark { visibility: visible; }
+    .retry { margin: var(--ui-space-1) var(--ui-space-2); }
+    .stage { grid-area: stage; display: flex; flex-direction: column; height: calc(100svh - 92px); min-height: 540px; max-height: 850px; overflow: hidden; }
+    .stage-header { padding: 14px 24px; display: flex; align-items: baseline; gap: 18px; border-bottom: 1px solid #e5e8e1; }
+    .selected-name { margin: 0; font-size: 15px; line-height: 1.6; color: #55665a; overflow-wrap: anywhere; }
+    .stage-placeholder { flex: 1; min-height: 300px; display: grid; place-content: center; padding: 32px; text-align: center; }
+    .placeholder-title { margin: 0; font-size: 17px; color: #64736a; }
+    .placeholder-note { margin: 10px 0 0; font-size: 13px; color: #7b857e; line-height: 1.8; }
+    .culture { grid-area: culture; --region-padding: var(--ui-reading-padding); --region-leading: var(--ui-line-reading); --region-control-y: var(--ui-control-reading-y); --region-control-x: var(--ui-control-reading-x); min-height: 160px; }
+    .culture p { margin: var(--ui-space-4) 0 0; color: var(--ui-text-muted); line-height: var(--ui-line-reading); font-size: var(--ui-font-body); }
+    .culture .culture-tabs { display: flex; gap: var(--ui-space-2); margin-top: var(--ui-space-5); padding-bottom: var(--ui-space-3); border-bottom: var(--ui-border-width) solid var(--ui-border); }
+    .culture-panel { padding-top: var(--ui-space-3); overflow-wrap: anywhere; }
+    .culture-panel[hidden] { display: none; }
+    .culture h3 { font-size: var(--ui-font-subtitle); color: var(--ui-text-strong); margin: var(--ui-space-6) 0 var(--ui-space-3); font-weight: var(--ui-weight-strong); }
+    .culture .body-text { color: var(--ui-text); margin: var(--ui-space-3) 0; }
+    .culture .empty-text { color: var(--ui-text-muted); margin: var(--ui-space-5) 0; }
+    .culture .tag { display: inline-block; padding: var(--ui-space-1) var(--ui-space-2); margin: 0 var(--ui-space-1) var(--ui-space-1) 0; background: var(--ui-hover-bg); border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); font-size: var(--ui-font-meta); color: var(--ui-text-muted); }
+    .culture .tag-pending { color: var(--ui-warning-text); background: var(--ui-warning-bg); }
+    .culture .fact { padding: var(--ui-space-5) 0; border-bottom: var(--ui-border-width) solid var(--ui-border); }
+    .culture .fact h3 { margin: 0 0 var(--ui-space-3); }
+    .culture details { margin: var(--ui-space-4) 0; font-size: var(--ui-font-meta); line-height: var(--ui-line-reading); color: var(--ui-text-muted); }
+    .culture summary { cursor: pointer; color: var(--ui-accent); border-radius: var(--ui-radius-control); padding: var(--ui-space-1); }
+    .culture summary:hover { background: var(--ui-hover-bg); }
+    .culture a { color: var(--ui-accent); text-underline-offset: 3px; border-radius: var(--ui-radius-control); }
+    .culture a:hover { color: var(--ui-selected-text); background: var(--ui-hover-bg); }
+    .culture .source-list { padding-left: var(--ui-space-5); margin: var(--ui-space-3) 0; }
+    .culture .source-list li { margin: var(--ui-space-3) 0; }
+    .culture .source-list p { margin: var(--ui-space-1) 0; font-size: var(--ui-font-meta); }
+    .culture .parameter-table { width: 100%; max-width: 600px; border-collapse: collapse; margin: var(--ui-space-4) 0; font-size: var(--ui-font-body); }
+    .culture th, .culture td { padding: var(--ui-space-3); border-bottom: var(--ui-border-width) solid var(--ui-border); text-align: left; font-weight: var(--ui-weight-regular); }
+    .culture .steps { list-style: none; padding: 0; margin: var(--ui-space-5) 0; }
+    .culture .step { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: var(--ui-space-5); padding: var(--ui-space-6) 0; border-bottom: var(--ui-border-width) solid var(--ui-border); }
+    .culture .step h3 { margin-top: 0; }
+    .culture .step img { width: 180px; height: 180px; object-fit: contain; background: var(--ui-hover-bg); border-radius: var(--ui-radius-control); }
+    .culture .pattern-figure { margin: var(--ui-space-5) 0; max-width: 320px; }
+    .culture .pattern-figure img { display: block; width: 100%; height: auto; }
+    .culture figcaption { margin-top: var(--ui-space-3); color: var(--ui-text-muted); font-size: var(--ui-font-meta); line-height: var(--ui-line-reading); }
+    @media (max-width: 600px) { .culture .step { grid-template-columns: 1fr; } .culture .step img { width: 100%; max-width: 260px; height: auto; } .culture #culture-record { white-space: normal; text-align: right; } }
+    noscript p { margin: 0 32px 20px; color: #9c3e29; }
+    @media (max-width: 760px) {
+      .page-header { padding: 24px 18px 20px; }
+      h1 { font-size: 23px; }
+      .layout { padding: 0 18px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "catalog" "stage" "culture"; gap: 14px; }
+      .catalog { --region-padding: var(--ui-space-3); }
+      .directory { margin-top: var(--ui-space-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+      .stage { min-height: 400px; }
+      .stage-header { padding: 20px; }
+      .culture { --region-padding: var(--ui-space-5); }
+    }
+    .stage-live { position: relative; isolation: isolate; flex: 1; min-height: 300px; background: #efeee7; }
+    /* 只淡化背景层，文字与伞体不继承透明度或滤镜。 */
+    .stage-live::before { content: ""; position: absolute; inset: 0; background: url("./assets/optimized/misc/hall-bg.webp") center / cover no-repeat; opacity: 0.14; filter: saturate(0.35); pointer-events: none; }
+    .stage-live canvas { z-index: 1; }
+    .stage-live canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+    .exhibit-toolbar { padding: 16px 24px; border-top: 1px solid #e5e8e1; }
+    #exhibit-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; border: 0; margin: 0; padding: 0; }
+    #exhibit-controls label { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    #exhibit-open { width: 150px; accent-color: #355b43; }
+    #exhibit-pattern, #exhibit-retry { padding: 8px 12px; border: 1px solid #dce1da; border-radius: 4px; background: white; color: #34443a; font: inherit; }
+    #exhibit-rotation { accent-color: #355b43; }
+    #exhibit-status, .exhibit-hint { margin: 10px 0 0; color: #68746b; font-size: 12px; line-height: 1.7; }
+    #exhibit-status[data-error="true"] { color: #9c3e29; }
+    #exhibit-retry { margin-top: 8px; cursor: pointer; }
+    .mobile-directory { display: none; }
+    @media (max-width: 760px), (max-width: 1000px) and (max-height: 500px) and (orientation: landscape) {
+      .page-header { padding: 12px; gap: 8px 16px; flex-wrap: wrap; }
+      .page-header h1 { font-size: 19px; }
+      .page-header p { font-size: 12px; }
+      .layout { padding: 0 12px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "stage" "catalog" "culture"; gap: 12px; }
+      .stage { height: auto; min-height: 0; max-height: none; }
+      .stage-header { padding: 12px; gap: 8px 12px; flex-wrap: wrap; }
+      .stage-header h2 { font-size: 15px; }
+      .selected-name { font-size: 14px; }
+      .stage-live { flex: none; height: clamp(280px, 50svh, 460px); min-height: 0; }
+      .exhibit-toolbar { padding: 12px; }
+      #exhibit-controls { gap: 8px 16px; }
+      #exhibit-controls label { min-height: 44px; min-width: 0; flex-wrap: wrap; gap: 8px; }
+      #exhibit-controls label:not(.rotation-label) { flex: 1 1 230px; }
+      #exhibit-open { flex: 1 1 100px; width: 100px; min-width: 0; max-width: 100%; min-height: 32px; }
+      #exhibit-pattern { flex: 1; min-width: 0; max-width: 100%; min-height: 44px; font-size: 16px; }
+      #exhibit-status, .exhibit-hint { overflow-wrap: anywhere; }
+      .catalog { --region-padding: 12px; }
+      .catalog nav { display: none; }
+      .mobile-directory { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+      .mobile-directory select { flex: 1; width: 0; min-width: 0; min-height: 44px; padding: 8px; font: inherit; font-size: 16px; color: var(--ui-text); background: var(--ui-surface); border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); }
+      .culture { --region-padding: 16px; }
+      .culture .section-heading { flex-wrap: wrap; gap: 8px; }
+      .culture #culture-record { white-space: normal; overflow-wrap: anywhere; }
+      .culture-tabs button { flex: 1; min-width: 0; min-height: 44px; }
+      .culture .step { grid-template-columns: minmax(0, 1fr); }
+      .culture .step img { width: 100%; max-width: 260px; height: auto; }
+      .culture .parameter-table { table-layout: fixed; }
+      .culture th, .culture td { overflow-wrap: anywhere; }
+    }
+    @media (max-width: 1000px) and (max-height: 500px) and (orientation: landscape) {
+      .page-header { padding-top: 8px; padding-bottom: 8px; }
+      .stage-live { height: clamp(200px, 60svh, 280px); }
+    }
+    /* 文化区的阅读密度：沿用目录的字体、颜色和边框，只加强文字层级。 */
+    .culture {
+      --ui-font-body: 16px;
+      --ui-font-section: 22px;
+      --ui-font-subtitle: 19px;
+      --ui-font-meta: 13px;
+      --reading-width: 44rem;
+      --reading-section-gap: calc(var(--ui-space-4) * 2);
+      --reading-paragraph-gap: var(--ui-space-4);
+      --reading-line-height: 1.9;
+      --reading-note-line-height: 1.75;
+    }
+    .culture .section-heading { align-items: baseline; }
+    .culture h2 { line-height: 1.4; }
+    .culture .culture-panel { width: 100%; max-width: var(--reading-width); padding-top: var(--ui-space-6); }
+    .culture h3 { line-height: 1.5; margin-top: var(--reading-section-gap); margin-bottom: var(--ui-space-3); }
+    .culture .culture-panel > h3:first-child { margin-top: 0; }
+    .culture .body-text { font-size: var(--ui-font-body); line-height: var(--reading-line-height); margin: var(--reading-paragraph-gap) 0; }
+    .culture .empty-text { font-size: 14px; line-height: var(--reading-note-line-height); margin: var(--reading-paragraph-gap) 0; }
+    .culture .fact { padding: var(--ui-space-6) 0; }
+    .culture .fact h3, .culture .step h3 { font-size: 17px; margin: 0 0 var(--ui-space-2); }
+    .culture .tag { line-height: var(--reading-note-line-height); }
+    .culture details { font-size: var(--ui-font-meta); line-height: var(--reading-note-line-height); margin: var(--reading-paragraph-gap) 0; }
+    .culture details p { font-size: inherit; line-height: inherit; margin: var(--ui-space-2) 0; }
+    .culture .source-list li { margin: var(--ui-space-4) 0; }
+    .culture figcaption { line-height: var(--reading-note-line-height); }
+    .culture th, .culture td { line-height: var(--reading-line-height); }
+    @media (max-width: 760px) {
+      .culture { --ui-font-section: 20px; --ui-font-subtitle: 18px; }
+    }
+    .mobile-controls-toggle { display: none; }
+    @media (max-width: 760px), (max-width: 1000px) and (max-height: 500px) and (orientation: landscape) {
+      .stage-live { height: clamp(180px, 50svh, 480px); height: clamp(180px, 50dvh, 480px); }
+      .mobile-controls-toggle {
+        display: block; width: 100%; min-height: 48px; padding: 12px 16px;
+        font: inherit; font-size: 16px; line-height: 1.5; text-align: left;
+        color: var(--ui-accent); background: var(--ui-hover-bg);
+        border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control);
+        cursor: pointer; overflow-wrap: anywhere;
+      }
+      .mobile-controls-toggle:hover { border-color: var(--ui-hover-border); }
+      .mobile-controls-toggle:focus-visible { outline: var(--ui-focus-width) solid var(--ui-focus); outline-offset: var(--ui-focus-offset); }
+      #exhibition[data-mobile-controls-collapsed="true"] #exhibit-controls,
+      #exhibition[data-mobile-controls-collapsed="true"] .exhibit-hint { display: none; }
+      #exhibition[data-mobile-controls-collapsed="false"] #exhibit-controls { margin-top: var(--ui-space-3); }
+      #exhibit-controls .rotation-label { min-height: 48px; padding: 8px 0; }
+      #exhibit-rotation { width: 20px; height: 20px; margin: 0; }
+      #exhibit-retry { min-height: 48px; font-size: 16px; max-width: 100%; }
+      #retry { min-height: 48px; }
+    }
+  </style>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#exhibition">跳到展台</a>
+  <header class="page-header">
+    <h1>油纸伞文化馆</h1>
+    <p>从目录选择一把伞</p>
+  </header>
+  <noscript><p>请启用 JavaScript，以读取伞目录。</p></noscript>
+  <main class="layout">
+    <aside class="panel catalog" aria-labelledby="catalog-title">
+      <div class="section-heading"><h2 id="catalog-title">伞目录</h2><span id="catalog-count" class="count">—</span></div>
+      <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">正在读取目录…</p>
+      <label class="mobile-directory" for="umbrella-select">选择伞<select id="umbrella-select" disabled><option>正在读取目录…</option></select></label>
+      <nav aria-label="伞目录"><ul id="umbrella-list" class="directory" aria-busy="true"></ul></nav>
+      <button id="retry" class="retry" type="button" hidden>重新读取目录</button>
+    </aside>
+    <section id="exhibition" class="panel stage" aria-labelledby="stage-title" tabindex="-1">
+      <header class="stage-header"><h2 id="stage-title">3D 展台</h2><p id="selected-name" class="selected-name" aria-live="polite">尚未选择</p></header>
+      <div id="stage" class="stage-live" aria-label="油纸伞三维展示" aria-busy="true"></div>
+      <div class="exhibit-toolbar">
+        <button id="mobile-controls-toggle" class="mobile-controls-toggle" type="button" aria-expanded="true" aria-controls="exhibit-controls">收起控制</button>
+        <fieldset id="exhibit-controls" disabled>
+          <label for="exhibit-open">开合 <output id="exhibit-open-value">100%</output><input id="exhibit-open" type="range" min="0" max="1" step="0.01" value="1"></label>
+          <label for="exhibit-pattern">纹样<select id="exhibit-pattern"></select></label>
+          <label class="rotation-label"><input id="exhibit-rotation" type="checkbox" checked> 缓慢自转</label>
+        </fieldset>
+        <p id="exhibit-status" role="status" aria-live="polite">正在载入三维展台…</p>
+        <button id="exhibit-retry" type="button" hidden>重新载入模型</button>
+        <button id="page-retry" type="button" hidden>重新加载页面</button>
+        <p id="exhibit-help" class="exhibit-hint">鼠标拖动旋转 · 滚轮缩放 · 操作后稍停再恢复自转。键盘聚焦展台后：方向键旋转，+ / - 缩放。</p>
+      </div>
+    </section>
+    <section id="culture" class="panel culture" aria-labelledby="culture-title">
+      <div class="section-heading"><h2 id="culture-title">文化解说</h2><span id="culture-record" class="count">尚未选择</span></div>
+      <div class="culture-tabs" role="tablist" aria-label="文化解说分类">
+        <button id="tab-form" type="button" role="tab" aria-selected="true" aria-controls="panel-form" tabindex="0">形制</button>
+        <button id="tab-craft" type="button" role="tab" aria-selected="false" aria-controls="panel-craft" tabindex="-1">工艺</button>
+        <button id="tab-pattern" type="button" role="tab" aria-selected="false" aria-controls="panel-pattern" tabindex="-1">纹样</button>
+      </div>
+      <div id="panel-form" class="culture-panel" role="tabpanel" aria-labelledby="tab-form" tabindex="0"><p>暂无资料</p></div>
+      <div id="panel-craft" class="culture-panel" role="tabpanel" aria-labelledby="tab-craft" tabindex="0" hidden><p>暂无资料</p></div>
+      <div id="panel-pattern" class="culture-panel" role="tabpanel" aria-labelledby="tab-pattern" tabindex="0" hidden><p>暂无资料</p></div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const reload = document.querySelector('#page-retry');
+      reload.addEventListener('click', () => location.reload());
+      function failed() {
+        document.querySelector('#catalog-status').textContent = '页面初始化失败或超时，请检查网络后重新加载。';
+        document.querySelector('#catalog-status').dataset.error = 'true';
+        document.querySelector('#umbrella-list').setAttribute('aria-busy', 'false');
+        document.querySelector('#exhibit-status').textContent = '页面组件未能完整载入。请检查网络后重新加载页面。';
+        document.querySelector('#exhibit-status').dataset.error = 'true';
+        document.querySelector('#stage').setAttribute('aria-busy', 'false');
+        reload.hidden = false;
+      }
+      const deadline = setTimeout(failed, 12000);
+      Promise.all([import('./src/app.js'), import('./src/mobile-layout.js')])
+        .then(() => {
+          clearTimeout(deadline);
+          if (document.querySelector('#catalog-status').dataset.error !== 'true'
+              && document.querySelector('#exhibit-status').dataset.error !== 'true') reload.hidden = true;
+        })
+        .catch(() => { clearTimeout(deadline); failed(); });
+    })();
+  </script>
+</body>
+</html>
